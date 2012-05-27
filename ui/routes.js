@@ -18,7 +18,8 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         "tag/:tag/overdue":    "listOverdue",
         "tag/:tag/today":      "listToday",
         "tag/:tag/week":       "listWeek",
-        "tag/:tag/complete":   "listComplete"
+        "tag/:tag/complete":   "listComplete",
+		"author/:author":	   "listAuthor"
     },
     help: function() {
         $('#content').text('help');

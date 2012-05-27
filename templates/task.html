@@ -1,13 +1,15 @@
 <td class="select">
   <input class="taskcheck" type="checkbox" />
 </td>
-<td class="description">{{description}}</td>
-<td class="tags">
+<td class="description">
+<h3>{{name}}</h3> by <a class="label" href="#author/{{author}}">{{author}}</a>
+<br><br>
+{{#if thumb}}
+<img class="thumbnail" src="_rewrite/api/{{_id}}/{{thumb}}">
+{{/if}}
+<br>
   {{#each tags}}
     <a class="label label-info" href="#tag/{{uc this}}/incomplete">{{this}}</a>
   {{/each}}
 </td>
-<td class="due">{{due_pp}}</td>
-<td class="completed">
-  {{#if complete}}<i class="icon-ok"></i>{{/if}}
-</td>
+<td>{{descr}}</td>

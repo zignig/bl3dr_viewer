@@ -1,6 +1,6 @@
 exports.incomplete_by_tag_due_and_priority = {
     map: function (doc) {
-        if (doc.type === 'task' && !doc.complete && doc.due) {
+        if (doc.type === 'thing' && !doc.complete && doc.due) {
             emit([null, doc.due || {}, doc.priority || 4]);
             if (doc.tags) {
                 for (var i = 0; i < doc.tags.length; i++) {
@@ -13,7 +13,7 @@ exports.incomplete_by_tag_due_and_priority = {
 
 exports.incomplete_by_tag_priority_and_due = {
     map: function (doc) {
-        if (doc.type === 'task' && !doc.complete) {
+        if (doc.type === 'thing' && !doc.complete) {
             emit([null, doc.priority || 4, doc.due || {}]);
             if (doc.tags) {
                 for (var i = 0; i < doc.tags.length; i++) {
@@ -26,7 +26,7 @@ exports.incomplete_by_tag_priority_and_due = {
 
 exports.complete_by_tag_and_completed_at = {
     map: function (doc) {
-        if (doc.type === 'task' && doc.complete) {
+        if (doc.type === 'thing' && doc.complete) {
             emit([null, doc.priority || 4, doc.due || {}]);
             if (doc.tags) {
                 for (var i = 0; i < doc.tags.length; i++) {
@@ -42,7 +42,7 @@ exports.nav_info = {
         // hacky way to load date.js
         require('views/lib/date');
 
-        if (doc.type !== 'task') {
+        if (doc.type !== 'thing') {
             return;
         }
 
@@ -58,7 +58,7 @@ exports.nav_info = {
             for (var i = 0, len = doc.tags.length; i < len; i++) {
                 emit([doc.tags[i], 'complete'], 1);
             }
-            // don't include completed tasks in other counts
+            // don't include completed things in other counts
             return;
         }
         else {
