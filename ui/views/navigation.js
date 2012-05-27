@@ -10,7 +10,7 @@ exports.NavigationView = Backbone.View.extend({
     template: templates['nav.html'],
     main: [
         {
-            text: 'All tasks',
+            text: 'All Things',
             tag: null,
             href: '#all/incomplete',
             icon: 'asterisk',

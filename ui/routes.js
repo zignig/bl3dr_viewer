@@ -143,7 +143,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         window.app_view.nav_view.selectNav(tag, 'complete');
         window.app_view.showTaskList(tasks);
     },
-    listAuthors: function (author) {
+    listAuthor: function (author) {
         author = author || null;
         var tasks = new TaskList(null, {
             view: {
@@ -155,7 +155,8 @@ exports.WorkspaceRouter = Backbone.Router.extend({
                 return [task.get('due') || {},4];
             },
             shouldInclude: function (task) {
-                return 1;
+                return !task.get('complete') &&
+                       (!tag || _.include(task.get('tags'), tag));
             }
         });
         //window.app_view.nav_view.selectNav(tag, 'complete');
