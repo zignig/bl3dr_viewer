@@ -37,6 +37,12 @@ exports.complete_by_tag_and_completed_at = {
     }
 };
 
+exports.author = {
+	map: function(doc) {
+           emit([doc.author, doc.priority || 4, doc.due || {}]);
+	}
+};
+
 exports.nav_info = {
     map: function (doc) {
         // hacky way to load date.js

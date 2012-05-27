@@ -142,5 +142,23 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'complete');
         window.app_view.showTaskList(tasks);
+    },
+    listAuthors: function (author) {
+        author = author || null;
+        var tasks = new TaskList(null, {
+            view: {
+                ddoc: 'kanso-tasks',
+                name: 'author',
+                query: { startkey: [author], endkey: [author, {}] }
+            },
+            comparator: function (task) {
+                return [task.get('due') || {},4];
+            },
+            shouldInclude: function (task) {
+                return 1;
+            }
+        });
+        //window.app_view.nav_view.selectNav(tag, 'complete');
+        window.app_view.showTaskList(tasks);
     }
 });

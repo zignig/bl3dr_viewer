@@ -5,11 +5,11 @@ var Backbone = require('backbone'),
 
 exports.Task = Backbone.Model.extend({
     idAttribute: '_id',
-    type: 'task',
+    type: 'thing',
     defaults: function () {
         var username = session.userCtx ? session.userCtx.name: null;
         return {
-            type: 'task',
+            type: 'thing',
             complete: false,
             created_by: username,
             list: null,
