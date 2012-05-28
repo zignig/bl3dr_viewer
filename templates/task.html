@@ -1,15 +1,18 @@
 <td class="select">
   <input class="taskcheck" type="checkbox" />
+{{#if thumb}}
+<img height="120px" width="160px" class="thumbnail" src="_rewrite/api/{{_id}}/{{thumb}}">
+{{/if}}
 </td>
 <td class="description">
-<h3>{{name}}</h3> by <a class="label" href="#author/{{author}}">{{author}}</a>
-<br><br>
-{{#if thumb}}
-<img class="thumbnail" src="_rewrite/api/{{_id}}/{{thumb}}">
-{{/if}}
+<h3>{{name}}</h3><br> by <a class="label" href="#author/{{author}}">{{author}}</a>
 <br>
+Tags:<br>
   {{#each tags}}
-    <a class="label label-info" href="#tag/{{uc this}}/incomplete">{{this}}</a>
+    <a class="label label-info " href="#tag/{{uc this}}/incomplete">{{this}}</a>
   {{/each}}
-<td><a href="/_utils/document.html?stl/{{_id}}">(futon)</a></td>
+<td>
+{{short}}<br>
+{{#if url}}<a target="new" href="{{url}}">({{url}})</a>{{/if}}
 </td>
+<td><a href="/_utils/document.html?stl/{{_id}}">(futon)</a></td>

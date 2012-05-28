@@ -14,7 +14,7 @@ exports.ListView = Backbone.View.extend({
         'keyup     #new-task':          'createOnEnter',
         'focus     #new-task':          'restartTimer',
         'blur      #new-task':          'hideTip',
-        'click     .handle':            'toggleActions',
+        'click     .handle':            'showEditModal',
         'mouseover .handle':            'peekActions',
         'mouseout  .handle':            'unpeekActions',
         'click     tr .select input':   'updateSelection',
@@ -433,6 +433,7 @@ exports.ListView = Backbone.View.extend({
         function submitHandler(ev) {
             ev.preventDefault();
             var props = {
+                name:    $('[name="name"]', that.modal).val(),
                 priority:    $('[name="priority"]', that.modal).val(),
                 description: $('[name="description"]', that.modal).val(),
                 tags:        $('[name="tags"]', that.modal).val(),
