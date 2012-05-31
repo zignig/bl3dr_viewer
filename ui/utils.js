@@ -47,7 +47,7 @@ exports.parseTask = function (str) {
     return {
         due: due ? due.toISOString(): null,
         priority: priority,
-        description: description,
+        name: description,
         tags: tags
     };
 };

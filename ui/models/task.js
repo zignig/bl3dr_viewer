@@ -11,10 +11,9 @@ exports.Task = Backbone.Model.extend({
         return {
             type: 'thing',
             complete: false,
-            created_by: username,
-            list: null,
+            author: username,
             created_at: Date.today().toISOString(),
-            tags: []
+            tags: ['new']
         };
     },
     validate: function () {
