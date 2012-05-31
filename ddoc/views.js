@@ -43,6 +43,12 @@ exports.author = {
 	}
 };
 
+exports.id= {
+	map: function(doc) {
+           emit([doc._id, doc.priority || 4, doc.due || {}]);
+	}
+};
+
 exports.nav_info = {
     map: function (doc) {
         // hacky way to load date.js

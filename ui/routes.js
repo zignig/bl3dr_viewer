@@ -19,7 +19,8 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         "tag/:tag/today":      "listToday",
         "tag/:tag/week":       "listWeek",
         "tag/:tag/complete":   "listComplete",
-		"author/:author":	   "listAuthor"
+		"author/:author":	   "listAuthor",
+		"id/:id":	   "listID"
     },
     help: function() {
         $('#content').text('help');
@@ -159,7 +160,24 @@ exports.WorkspaceRouter = Backbone.Router.extend({
                        (!tag || _.include(task.get('tags'), tag));
             }
         });
-        //window.app_view.nav_view.selectNav(tag, 'complete');
         window.app_view.showTaskList(tasks);
+    },
+    listID: function (id) {
+        var tasks = new TaskList(null, {
+            view: {
+                ddoc: 'kanso-tasks',
+                name: 'id',
+                query: { startkey: [id], endkey: [id, {}] }
+            },
+            comparator: function (task) {
+                return [task.get('due') || {},4];
+            },
+            shouldInclude: function (task) {
+                return !task.get('complete') &&
+                       (!tag || _.include(task.get('tags'), tag));
+            }
+        });
+        window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     }
 });
