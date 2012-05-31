@@ -109,7 +109,7 @@ exports.NavigationView = Backbone.View.extend({
                 text: name,
                 tag: name,
                 active: (this.selected.tag === name),
-                href: '#tag/' + encodeURIComponent(name) + '/incomplete',
+                href: '#tag/' + encodeURIComponent(name) + '/complete',
                 children: [
                     {
                         text: 'Incomplete',
@@ -169,7 +169,7 @@ exports.NavigationView = Backbone.View.extend({
     updateTagCount: function (tag, counts) {
         for (var i = 0; i < this.tags.length; i++) {
             if (this.tags[i].tag === tag) {
-                this.tags[i].count = counts.incomplete || 0;
+                this.tags[i].count = counts.complete|| 0;
                 this.tags[i].children[0].count = counts.incomplete || 0;
                 this.tags[i].children[1].count = counts.overdue || 0;
                 this.tags[i].children[2].count = counts.today || 0;
@@ -179,7 +179,7 @@ exports.NavigationView = Backbone.View.extend({
         }
     },
     updateCounts: function (counts) {
-        this.main[0].count = counts.incomplete || 0;
+        this.main[0].count = counts.complete|| 0;
         this.main[0].children[0].count = counts.incomplete || 0;
         this.main[0].children[1].count = counts.overdue || 0;
         this.main[0].children[2].count = counts.today || 0;

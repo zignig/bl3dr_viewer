@@ -46,6 +46,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'incomplete');
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listOverdue: function (tag) {
         tag = tag || null;
@@ -70,6 +71,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'overdue');
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listToday: function (tag) {
         tag = tag || null;
@@ -97,6 +99,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'today');
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listWeek: function (tag) {
         tag = tag || null;
@@ -124,6 +127,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'week');
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listComplete: function (tag) {
         tag = tag || null;
@@ -143,6 +147,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         });
         window.app_view.nav_view.selectNav(tag, 'complete');
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listAuthor: function (author) {
         author = author || null;
@@ -161,6 +166,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
             }
         });
         window.app_view.showTaskList(tasks);
+		window.scrollTo(0,0);
     },
     listID: function (id) {
         var tasks = new TaskList(null, {
