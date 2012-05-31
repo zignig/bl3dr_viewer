@@ -1,6 +1,6 @@
 {
-    "name": "kanso-tasks",
-    "description": "Todo List CouchApp",
+    "name": "bl3dr-viewer",
+    "description": "Open hardware repository",
     "version": "0.0.1",
     "load": "ddoc/ddoc",
     "attachments": ["index.html", "vendor", "img"],

@@ -29,7 +29,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         tag = tag || null;
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'incomplete_by_tag_priority_and_due',
                 query: { startkey: [tag], endkey: [tag, {}] }
             },
@@ -53,7 +53,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         var today = Date.today().toISOString();
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'incomplete_by_tag_due_and_priority',
                 query: { startkey: [tag], endkey: [tag, today] }
             },
@@ -80,7 +80,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         var tomorrow = t.clone().add({days: 1}).toISOString();
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'incomplete_by_tag_due_and_priority',
                 query: { startkey: [tag, today], endkey: [tag, tomorrow] }
             },
@@ -108,7 +108,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         var next_week = t.clone().add({weeks: 1}).toISOString();
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'incomplete_by_tag_due_and_priority',
                 query: { startkey: [tag, today], endkey: [tag, next_week] }
             },
@@ -133,7 +133,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         tag = tag || null;
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'complete_by_tag_and_completed_at',
                 query: { startkey: [tag], endkey: [tag, {}] }
             },
@@ -153,7 +153,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
         author = author || null;
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'author',
                 query: { startkey: [author], endkey: [author, {}] }
             },
@@ -171,7 +171,7 @@ exports.WorkspaceRouter = Backbone.Router.extend({
     listID: function (id) {
         var tasks = new TaskList(null, {
             view: {
-                ddoc: 'kanso-tasks',
+                ddoc: 'bl3dr-viewer',
                 name: 'id',
                 query: { startkey: [id], endkey: [id, {}] }
             },
